@@ -16,11 +16,11 @@
 
     <div class="widgets">
         <p class="firstP">Limit Results:</p>
-        <select id="limit">
-            <option value="5">10</option>
-            <option value="10" selected>20</option>
-            <option value="25">40</option>
-            <option value="50">80</option>
+        <select id="limitGIF">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="40">40</option>
+            <option value="80">80</option>
             <option value="100">100</option>
         </select>
 
@@ -32,11 +32,11 @@
     </div>
 
     <div class="widgets">
-        <input id="searchTerm" type="text" size="20" maxlength="20" defalut value=""/>
+        <input id="searchGIF" type="text" size="20" maxlength="20" defalut value=""/>
     </div>  
 
     <div class="widgets">
-        <button type="button" id="search" class="gifIt">Gif It!</button>
+        <button type="button" id="search" class="gifIt" onclick="GIFsearchButtonClicked()">Gif It!</button>
     </div>
     
     <div id="status">Ready to Go!</div>
