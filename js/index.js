@@ -110,7 +110,6 @@ function dataLoaded(e){
             document.execCommand("copy");
             alert("Copied the text: " + copyText.value);
         }
-
         var line = `<div class='result'><img src='${smallURL}' title= '${result.id}' />`;
         line += `<span><a target='_blank' href='${url}'>'${title}'</a></span>`;
         line += `<p>Rating: ${rating}</p></div>`;
