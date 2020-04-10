@@ -87,7 +87,6 @@ function getData(url){
 function dataLoaded(e){
     let xhr = e.target;
 
-
     //puty texxt into an obj
     let obj = JSON.parse(xhr.responseText);
     if (obj == null || obj.data.length == 0) {
@@ -107,28 +106,36 @@ function dataLoaded(e){
         let rating = result.rating.toUpperCase();
         let title = result.title;
 
-        //copy url
-        function copyText(){
-            let URLtext = result.url;
-            URLtext.select();
-            URLtext.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            alert("Copied the text: " + copyText.value);
-        }
-
-        var line = `<div class='result'><img src='${smallURL}' title= '${result.id}' />`;
-        line += `<span><a target='_blank' href='${url}'>'${title}'</a></span>`;
+        var line = `<div class='result'><a target='_blank' href='${url}'><img src='${smallURL}' title= '${result.id}'/></a>`;
         line += `<p>Rating: ${rating}</p></div>`;
-        line += `<button class="copyButton" onclick="copyText()">Click here to copy URL</button>`;
+        line += `<button class="copyButton" onclick="copyText('${url}')">Click here to copy URL</button>`;
         bigString += line;
     }
-
-
 
     document.querySelector("#content").innerHTML = bigString;
 
     document.querySelector("#status").innerHTML = "<b>Success!</b>";
 }
+
+//copy url
+function copyText(url){
+const input = document.createElement('input');
+input.setAttribute('readonly', 'readonly'); 
+input.setAttribute('value', url);
+document.body.appendChild(input);
+input.select();
+input.setSelectionRange(0, 9999);
+if(document.execCommand("Copy","false","null"))
+{
+    alert("Copy Success!");
+}
+else
+{
+    alert("Copy Failed...")
+}
+
+}
+
 function dataError(e){
 
 }
