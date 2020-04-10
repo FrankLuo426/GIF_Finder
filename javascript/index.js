@@ -93,9 +93,9 @@ function dataLoaded(e){
     let bigString = "<p><i>Here are " + results.length + " results for '" + displayTerm + "'</i></p>";
 
     for (let i = 0; i < results.length; i++) {
-        let thisResult = results[i];
+        let result = results[i];
 
-        let smallURL = thisResult.images.fixed_width_small.url;
+        let smallURL = result.images.fixed_width_small.url;
         if (!smallURL) smallURL = "images/no-image-found.png";
 
         let url = result.url;
