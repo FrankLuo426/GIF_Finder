@@ -108,17 +108,39 @@ h2{
 }
 
 #content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items:flex-start;
     border: 5px solid rgb(25, 66, 128);
     border-radius: 10px;
-    align-items: center;
     text-align: center;
-    justify-content: center;
-    width: 80%;
+    width: 80vw;
+    min-height: 100px;
     margin-left: 10%;
     background-color: #f0f0f0;
 }
 
-#content p{
+.contentP{
+    position: absolute;
     color: rgb(25, 66, 128);
     font-size: 20px;
+    margin-left: 42%;
+}
+
+.result{
+    margin: 1em;
+    margin-top: 8%;
+    width: 15vw;
+    box-shadow : 0 0 5px rgba(0,0,0,.6);
+    border: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color:rgb(25, 66, 128);
+}
+
+.copyButton{
+    border-color: rgb(25, 66, 128);
+    background: rgb(25, 66, 128);
+    font-size: 14px;
 }

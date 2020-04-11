@@ -94,7 +94,8 @@ function dataLoaded(e){
     }
 
     let results = obj.data;
-    let bigString = "<p><i>Here are " + results.length + " results for '" + displayTerm + "'</i></p>";
+    let bigString = "";
+    let contentString = "Here are " + results.length + " results for " + displayTerm;
 
     for (let i = 0; i < results.length; i++) {
         let result = results[i];
@@ -107,12 +108,14 @@ function dataLoaded(e){
         let title = result.title;
 
         var line = `<div class='result'><a target='_blank' href='${url}'><img src='${smallURL}' title= '${result.id}'/></a>`;
-        line += `<p>Rating: ${rating}</p></div>`;
-        line += `<button class="copyButton" onclick="copyText('${url}')">Click here to copy URL</button>`;
+        line += `<p>Rating: ${rating}</p>`;
+        line += `<button class="copyButton" onclick="copyText('${url}')">Click here to copy URL</button></div>`;
         bigString += line;
     }
 
     document.querySelector("#content").innerHTML = bigString;
+
+    document.querySelector(".contentP").innerHTML = contentString;
 
     document.querySelector("#status").innerHTML = "<b>Success!</b>";
 }
