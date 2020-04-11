@@ -27,6 +27,13 @@ button{
     margin-top: 8px;
     margin-right: 16px;
     cursor: pointer;
+
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+  }
 }
 
 button.gifIt{
