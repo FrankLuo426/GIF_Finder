@@ -23,6 +23,10 @@ button{
     text-decoration : none;
     font-size: 20px;
     letter-spacing: 1px;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    cursor: pointer;
 }
 
 button.gifIt{
@@ -72,6 +76,13 @@ button:active{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 3%;
+    float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 #limitGIF{
