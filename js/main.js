@@ -140,6 +140,7 @@ function copyText(url) {
 
 //more info
 function moreinfo(result) {
+    console.log(result.data);
     let url = result.url;
     let title = result.title;
     let username = result.username;
