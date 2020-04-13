@@ -114,7 +114,7 @@ function dataLoaded(e) {
         let info = [title, url, username, source, update_datetime];
         line += `<p>Rating: ${rating}</p>`;
         line += `<button class="copyButton" onclick="copyText('${url}')">Click here to copy URL</button></div>`;
-        line += `<button class="copyButton" onclick="moreinfo('${info}')">More INFO</button></div>`;
+        line += `<button class="copyButton" onclick="moreinfo('${title}', '${url}', '${username}', '${source}', '${rating}')">More INFO</button></div>`;
         bigString += line;
     }
 
@@ -141,14 +141,13 @@ function copyText(url) {
 }
 
 //more info
-function moreinfo(info) {
+function moreinfo(title, url, username, source, rating) {
     line = "<p>MORE INFO</p>";
-    line += `<p>Title: ${info[0]}</p>`;
-    line += `<p>URL: ${info[1]}</p>`;
-    line += `<p>User Name: ${info[2]}</p>`;
-    line += `<p>Source: ${info[3]}</p>`;
-    line += `<p>Update Time: ${info[4]}</p>`;
-    console.log(info[1]);
+    line += `<p>Title: ${title}</p>`;
+    line += `<p>URL: ${url}</p>`;
+    line += `<p>User Name: ${username}</p>`;
+    line += `<p>Source: ${source}</p>`;
+    line += `<p>Rating: ${rating}</p>`;
     document.querySelector("#moreinfo").innerHTML = line;
 }
 
