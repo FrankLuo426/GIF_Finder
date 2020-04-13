@@ -1,6 +1,32 @@
 function bgChange(thisColor) {
-    newColor = thisColor.options[thisColor.selectedIndex].text;
-    document.bgColor = newColor;
+    if(thisColor.options[thisColor.selectedIndex].text == "Black")
+    {
+        document.bgColor = "#0B0B0B";
+        document.querySelector("h1").style.color = "#296bce";
+        document.querySelector("h2").style.color = "#296bce";
+        document.getElementById("status").style.color = "#296bce";
+        document.getElementById("content").style.backgroundColor = "#0B0B0B";
+
+        let pList = document.querySelectorAll("p");
+        for(i=0;i<pList.length;i++)
+        {
+            pList[i].style.color = "#296bce";
+        }
+    }
+    else
+    {
+        document.bgColor = "white";
+        document.querySelector("h1").style.color = "#194280";
+        document.querySelector("h2").style.color = "#194280";
+        document.getElementById("status").style.color = "#194280";
+        document.getElementById("content").style.backgroundColor = "#f0f0f0";
+        
+        let pList = document.querySelectorAll("p");
+        for(i=0;i<pList.length;i++)
+        {
+            pList[i].style.color = "#194280";
+        }
+    }
 }
 
 //create a GIF search buttton
