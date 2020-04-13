@@ -108,13 +108,11 @@ function dataLoaded(e) {
 
     for (let i = 0; i < results.length; i++) {
         let result = results[i];
-
         let smallURL = result.images.fixed_width_small.url;
         if (!smallURL) smallURL = "images/no-image-found.png";
 
         let url = result.url;
         let rating = result.rating.toUpperCase();
-        let title = result.title;
 
         var line = `<div class='result'><a target='_blank' href='${url}'><img src='${smallURL}' title= '${result.id}'/></a>`;
         line += `<p>Rating: ${rating}</p>`;
