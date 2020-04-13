@@ -140,7 +140,18 @@ function copyText(url) {
 
 //more info
 function moreinfo(result) {
-    
+    let url = result.url;
+    let title = result.title;
+    let username = result.username;
+    let source = result.source;
+    let update_datetime = result.update_datetime;
+    line = "<p>MORE INFO</p>";
+    line += `<p>Title: '${title}'</p>`;
+    line += `<p>URL: '${url}'</p>`;
+    line += `<p>User Name: '${username}'</p>`;
+    line += `<p>Source: '${source}'</p>`;
+    line += `<p>Update Time: '${update_datetime}</p>`;
+    document.querySelector("#moreinfo").innerHTML = line;
 }
 
 function dataError(e) {
