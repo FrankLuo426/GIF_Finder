@@ -132,13 +132,12 @@ function copyText(url) {
     } else {
         alert("Copy Failed...")
     }
-
 }
 
-
 //more info
-function moreinfo(title) {
-    console.log(title);
+function moreinfo(result) {
+    console.log(result.data);
+    let title = result.title;
     let url = result.url;
     let username = result.username;
     let source = result.source;
