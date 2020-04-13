@@ -104,11 +104,17 @@ function dataLoaded(e) {
 
         let url = result.url;
         let rating = result.rating.toUpperCase();
-
         var line = `<div class='result'><a target='_blank' href='${url}'><img src='${smallURL}' title= '${result.id}'/></a>`;
+
+        //info
+        let title = result.title;
+        let username = result.username;
+        let source = result.source;
+        let update_datetime = result.update_datetime;
+        let info = [title, url, username, source, update_datetime];
         line += `<p>Rating: ${rating}</p>`;
         line += `<button class="copyButton" onclick="copyText('${url}')">Click here to copy URL</button></div>`;
-        line += `<button class="copyButton" onclick="moreinfo('${result}')">More INFO</button></div>`;
+        line += `<button class="copyButton" onclick="moreinfo('${info}')">More INFO</button></div>`;
         bigString += line;
     }
 
@@ -135,19 +141,14 @@ function copyText(url) {
 }
 
 //more info
-function moreinfo(result) {
-    console.log(result.data);
-    let title = result.title;
-    let url = result.url;
-    let username = result.username;
-    let source = result.source;
-    let update_datetime = result.update_datetime;
+function moreinfo(info) {
     line = "<p>MORE INFO</p>";
-    line += `<p>Title: '${title}'</p>`;
-    line += `<p>URL: '${url}'</p>`;
-    line += `<p>User Name: '${username}'</p>`;
-    line += `<p>Source: '${source}'</p>`;
-    line += `<p>Update Time: '${update_datetime}</p>`;
+    line += `<p>Title: ${info[0]}</p>`;
+    line += `<p>URL: ${info[1]}</p>`;
+    line += `<p>User Name: ${info[2]}</p>`;
+    line += `<p>Source: ${info[3]}</p>`;
+    line += `<p>Update Time: ${info[4]}</p>`;
+    console.log(info[1]);
     document.querySelector("#moreinfo").innerHTML = line;
 }
 
