@@ -43,6 +43,11 @@ function GIFsearchButtonClicked() {
     url += "api_key=" + api_key;
     //get and parse the search item
     let item = document.querySelector("#searchGIF").value;
+    if(item == '')
+    {
+        document.querySelector("#status").innerHTML = "<b>Your have not enter any term yet!</b>";
+    }
+
     displayTerm = item;
     //fix the search item problem
     item = item.trim();
@@ -72,19 +77,22 @@ function TrendingRsearchButtonClicked() {
     let url = Trend_Search_URL;
     let api_key = "tH7NkuJUOcVVGQ7yoFMoUkTgppTJUEY9";
     url += "api_key=" + api_key;
+
+    let limit = document.querySelector("#limitGIF").value;
+    url += "&limit=" + limit;
+
+    document.querySelector("#status").innerHTML = "<b>Searching For trending!</b>";
     getData(url);
 }
-
-
 
 //Downloading the data with XHR
 function getData(url) {
     let xhr = new XMLHttpRequest();
     xhr.onload = dataLoaded;
-    xhr.onerror = dataError;
     xhr.open("GET", url);
     xhr.send();
 }
+
 //Create the callback functions
 function dataLoaded(e) {
     let xhr = e.target;
@@ -97,12 +105,11 @@ function dataLoaded(e) {
 
     let results = obj.data;
     let bigString = "";
-    //let contentString = "Here are " + results.length + " results for " + displayTerm;
 
     for (let i = 0; i < results.length; i++) {
         let result = results[i];
         let smallURL = result.images.fixed_width_small.url;
-        if (!smallURL) smallURL = "images/no-image-found.png";
+        if (!smallURL) smallURL = "img/no-image-found.png";
 
         let url = result.url;
         let rating = result.rating.toUpperCase();
@@ -110,21 +117,17 @@ function dataLoaded(e) {
 
         //info
         let title = result.title;
-        let username = result.username;
         let source = result.source;
-        let update_datetime = result.update_datetime;
-        let info = [title, url, username, source, update_datetime];
-        line += `<p>Rating: ${rating}</p>`;
-        line += `<button class="copyButton" onclick="copyText('${url}')">Click here to copy URL</button></div>`;
-        line += `<button class="copyButton" onclick="moreinfo('${title}', '${url}', '${username}', '${source}', '${rating}')">More INFO</button></div>`;
+
+        line += `<button class="copyButton" onclick="copyText('${url}')">Copy URL</button>`;
+        line += `<button class="infoButton" onclick="moreInfo('${title}', '${source}', '${rating}')">More Info</button></div>`;
         bigString += line;
     }
 
     document.querySelector("#content").innerHTML = bigString;
 
-    //document.querySelector(".contentP").innerHTML = contentString;
-
     document.querySelector("#status").innerHTML = "<b>Success!</b>";
+    document.querySelector(".contentP").innerHTML = "<b>Here is "+ results.length +" results </b>";
 }
 
 //copy url
@@ -135,6 +138,7 @@ function copyText(url) {
     document.body.appendChild(input);
     input.select();
     input.setSelectionRange(0, 9999);
+
     if (document.execCommand("Copy", "false", "null")) {
         alert("Copy Success!");
     } else {
@@ -143,16 +147,18 @@ function copyText(url) {
 }
 
 //more info
-function moreinfo(title, url, username, source, rating) {
+function moreInfo(title, source, rating) {
     line = "<p>MORE INFO</p>";
     line += `<p>Title: ${title}</p>`;
-    line += `<p>URL: ${url}</p>`;
-    line += `<p>User Name: ${username}</p>`;
     line += `<p>Source: ${source}</p>`;
     line += `<p>Rating: ${rating}</p>`;
-    document.querySelector("#moreinfo").innerHTML = line;
+    
+    document.getElementById("infoWindow").style.visibility="visible";
+    document.getElementById("infoCloseButton").style.visibility="visible";
+    document.querySelector("#infoWindow").innerHTML = line;
 }
 
-function dataError(e) {
-
+function infoButtonClicked() {
+    document.getElementById("infoWindow").style.visibility="hidden";
+    document.getElementById("infoCloseButton").style.visibility="hidden";
 }

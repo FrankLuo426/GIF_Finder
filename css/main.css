@@ -7,6 +7,7 @@ header h1{
     text-align:center;
     font-size:80px;
     font-weight: bold;
+    margin-right: 5%;
 }
 
 button{
@@ -15,7 +16,6 @@ button{
     border-style : solid;
     border-width : 2px;
     border-radius : 20px;
-    padding:5px 30px;
     box-shadow : 0 1px 3px rgba(0,0,0,.6);
     font-weight : bold;
     color :white;
@@ -23,19 +23,16 @@ button{
     text-decoration : none;
     font-size: 20px;
     letter-spacing: 1px;
-    padding: 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    cursor: pointer;
-
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    border: none;
-    cursor: pointer;
+    padding: 4px;
 }
 
 button.gifIt{
+    border-color: rgb(25, 66, 128);
+    background: rgb(25, 66, 128);
+    margin-left: 1%;
+}
+
+button.trending{
     border-color: rgb(25, 66, 128);
     background: rgb(25, 66, 128);
     margin-left: 45%;
@@ -73,7 +70,7 @@ button:active{
     display: flex;
     justify-content: center;
     width: 40%;
-    margin-left: 30%;
+    margin-left: 24%;
     background-color: #f0f0f0;
     background-image: url(../img/search.png);
     background-repeat: no-repeat;
@@ -83,12 +80,10 @@ button:active{
     padding-bottom: 10px;
     padding-left: 3%;
     float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
 }
 
 #limitGIF{
@@ -122,19 +117,20 @@ h2{
     text-align: center;
     font-size:60px;
     font-weight: bold;
+    margin-right: 5%;
 }
 
 #content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items:flex-start;
     border: 5px solid rgb(25, 66, 128);
     border-radius: 10px;
     text-align: center;
-    width: 80vw;
+    width: 90vw;
     min-height: 100px;
-    margin-left: 10%;
+    margin-left: 4%;
+    padding-bottom: 10%;
     background-color: #f0f0f0;
 }
 
@@ -143,28 +139,65 @@ h2{
     color: rgb(25, 66, 128);
     font-size: 20px;
     margin-left: 42%;
+    
 }
 
 .result{
     margin: 1em;
-    margin-top: 8%;
+    margin-top: 10%;
     width: 15vw;
-    box-shadow : 0 0 5px rgba(0,0,0,.6);
-    border: 2px;
-    border-style: solid;
-    border-radius: 10px;
-    border-color:rgb(25, 66, 128);
+    height: 20vh;
+}
+
+.result img{
+    width: 15vw;
+    height: 20vh;
+    border-radius : 10px;
+    border: 4px solid rgb(25, 66, 128);
 }
 
 .copyButton{
     border-color: rgb(25, 66, 128);
     background: rgb(25, 66, 128);
     font-size: 14px;
+    margin:5px;
 }
 
-#moreinfo{
-    position: sticky;
-    z-index: 5;
-    background-color: white;
-    bottom: 0;
+.infoButton{
+    border-color: rgb(25, 66, 128);
+    background: rgb(25, 66, 128);
+    font-size: 14px;
+    margin:5px;
+}
+
+#infoWindow{
+    position: fixed;
+    z-index: 2;
+    background-color: #f0f0f0;
+    border: 5px solid rgb(25, 66, 128);
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    visibility: hidden;
+    text-align: center;
+    bottom: 5%;
+    left: 37%;
+}
+
+.infoClose{
+    position: fixed;
+    z-index: 3;
+    font-size: 15px;
+    visibility: hidden;
+    bottom: 23%;
+    left: 38%;
+    border-radius: 50%;
+    text-align: center;
+    border:none;
+    width: 20px;
+    height: 20px;
+    padding-top: 2px;
+    padding-left: 5px;
+    background: rgb(25, 66, 128);
+    box-shadow : 0 0 5px rgba(0,0,0,.6  );
 }

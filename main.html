@@ -32,12 +32,12 @@
     </div>
 
     <div class="widgets">
-        <input id="searchGIF" type="text" size="20" maxlength="20" defalut value="cat"/>
+        <input id="searchGIF" type="text" size="20" maxlength="20" defalut value=""/>
     </div>  
 
     <div class="widgets">
         <button type="button" id="search" class="gifIt" onclick="GIFsearchButtonClicked()">Gif It!</button>
-        <button type="button" id="search" class="gifIt" onclick="TrendingRsearchButtonClicked()">Try It!</button>
+        <button type="button" id="trend" class="trending" onclick="TrendingRsearchButtonClicked()">Trending!</button>
     </div>
     
     <div id="status">Ready to Go!</div>
@@ -46,11 +46,11 @@
 
     <p class="contentP">No data yet!</p>
 
-    <div id="content">
-        
-    </div>
-    <div id="moreinfo">
+    <div id="content"></div>
 
-    </div>
+    <div id="infoWindow"></div>
+
+    <button type="button" id="infoCloseButton" class="infoClose" onclick="infoButtonClicked()">X</button>
+    
 </body>
 </html>
