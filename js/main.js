@@ -108,7 +108,7 @@ function dataLoaded(e) {
         var line = `<div class='result'><a target='_blank' href='${url}'><img src='${smallURL}' title= '${result.id}'/></a>`;
         line += `<p>Rating: ${rating}</p>`;
         line += `<button class="copyButton" onclick="copyText('${url}')">Click here to copy URL</button></div>`;
-        line += `<button class="copyButton" onclick="moreinfo('${title}')">More INFO</button></div>`;
+        line += `<button class="copyButton" onclick="moreinfo('${result}')">More INFO</button></div>`;
         bigString += line;
     }
 
@@ -140,7 +140,6 @@ function copyText(url) {
 function moreinfo(title) {
     console.log(title);
     let url = result.url;
-    let title = result.title;
     let username = result.username;
     let source = result.source;
     let update_datetime = result.update_datetime;
