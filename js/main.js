@@ -39,37 +39,13 @@ function GIFsearchButtonClicked() {
 
 }
 
-function STICKERsearchButtonClicked() {
+function TrendingRsearchButtonClicked() {
     //#1 above - this URL is the Giphy Search endpoint. Here's an example of another endpoint, the Giphy "Trending" endpoint:
-    const STICKER_Search_URL = "https://api.giphy.com/v1/stickers/search?";
-    //url to store the value
-    //require api_key, q, limit, offset, rating, lang,  random_id.
-    //the first one is the GIF_URL
-    let url = STICKER_Search_URL;
-    //decleasr some required value
-    let api_key = "tH7NkuJUOcVVGQ7yoFMoUkTgppTJUEY9";
+    const Trend_Search_URL = "https://api.giphy.com/v1/gifs/trending?";
     //parse in the api_key
+    let url = Trend_Search_URL;
+    let api_key = "tH7NkuJUOcVVGQ7yoFMoUkTgppTJUEY9";
     url += "api_key=" + api_key;
-    //get and parse the search item
-    let item = document.querySelector("#searchSTICKER").value;
-    displayTerm = item;
-    //fix the search item problem
-    item = item.trim();
-    item = encodeURIComponent(item);
-    //make sure the item greater than 1
-    if (item.length < 1) {
-        return;
-    }
-    //parse in item
-    url += "&q=" + item;
-
-    //set and parse in the limit 
-    let limit = document.querySelector("#limitSTICKER").value;
-    url += "&limit=" + limit;
-
-    //update
-    document.querySelector("#status").innerHTML = "<b>Searching For STICKER: '" + displayTerm + "'</b>";
-
     getData(url);
 }
 
@@ -95,7 +71,7 @@ function dataLoaded(e) {
 
     let results = obj.data;
     let bigString = "";
-    let contentString = "Here are " + results.length + " results for " + displayTerm;
+    //let contentString = "Here are " + results.length + " results for " + displayTerm;
 
     for (let i = 0; i < results.length; i++) {
         let result = results[i];
@@ -120,7 +96,7 @@ function dataLoaded(e) {
 
     document.querySelector("#content").innerHTML = bigString;
 
-    document.querySelector(".contentP").innerHTML = contentString;
+    //document.querySelector(".contentP").innerHTML = contentString;
 
     document.querySelector("#status").innerHTML = "<b>Success!</b>";
 }
