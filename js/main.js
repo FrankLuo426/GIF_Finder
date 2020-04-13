@@ -1,6 +1,15 @@
+
+let mode = "White";
+
 function bgChange(thisColor) {
     newColor = thisColor.options[thisColor.selectedIndex].text;
     document.bgColor = newColor;
+    mode = thisColor;
+}
+
+if(mode == "Black")
+{
+    document.getElementsByClassName("")
 }
 
 //create a GIF search buttton
