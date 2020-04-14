@@ -86,7 +86,7 @@ function TrendingRsearchButtonClicked() {
 }
 
 
-function RandomRsearchButtonClicked() {
+function RandomSearchButtonClicked() {
     //#1 above - this URL is the Giphy Search endpoint. Here's an example of another endpoint, the Giphy "Trending" endpoint:
     const Random_Search_URL = "https://api.giphy.com/v1/gifs/random?";
     //parse in the api_key
@@ -115,8 +115,38 @@ function dataLoaded(e) {
 
     //puty texxt into an obj
     let obj = JSON.parse(xhr.responseText);
+
     if (obj == null || obj.data.length == 0) {
         document.querySelector("#status").innerHTML = "<b>No Result</b> "
+        return;
+    }
+
+    if(obj.data.length == undefined)
+    {
+        let result = obj.data;
+        let bigString = "";
+
+        let smallURL = result.images.fixed_width_small.url;
+        if (!smallURL) smallURL = "img/no-image-found.png";
+
+        let url = result.url;
+        let rating = result.rating.toUpperCase();
+        var line = `<div class='result'><a target='_blank' href='${url}'><img src='${smallURL}' title= '${result.id}'/></a>`;
+
+        //info
+        let title = result.title;
+        let source = result.source;
+
+        line += `<button class="copyButton" onclick="copyText('${url}')">Copy URL</button>`;
+        line += `<button class="infoButton" onclick="moreInfo('${title}', '${source}', '${rating}')">More Info</button></div>`;
+        bigString += line;
+
+        document.querySelector("#content").innerHTML += bigString;
+
+        document.querySelector("#status").innerHTML = "<b>Success!</b>";
+        document.querySelector(".contentP").innerHTML = "<b>Here is a random results </b>";
+
+        return;
     }
 
     let results = obj.data;
