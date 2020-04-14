@@ -45,7 +45,7 @@ function GIFsearchButtonClicked() {
     let item = document.querySelector("#searchGIF").value;
     if(item == '')
     {
-        document.querySelector("#status").innerHTML = "<b>Your have not enter any term yet!</b>";
+        document.querySelector("#status").innerHTML = "Your have not enter any term yet!";
     }
 
     displayTerm = item;
@@ -64,7 +64,7 @@ function GIFsearchButtonClicked() {
     url += "&limit=" + limit;
 
     //update
-    document.querySelector("#status").innerHTML = "<b>Searching For GIF '" + displayTerm + "'</b>";
+    document.querySelector("#status").innerHTML = "Searching For GIF '" + displayTerm + "'";
 
     getData(url);
 
@@ -81,7 +81,7 @@ function TrendingRsearchButtonClicked() {
     let limit = document.querySelector("#limitGIF").value;
     url += "&limit=" + limit;
 
-    document.querySelector("#status").innerHTML = "<b>Searching For trending!</b>";
+    document.querySelector("#status").innerHTML = "Searching For trending!";
     getData(url);
 }
 
@@ -97,7 +97,7 @@ function RandomSearchButtonClicked() {
     let limit = document.querySelector("#limitGIF").value;
     url += "&limit=" + limit;
 
-    document.querySelector("#status").innerHTML = "<b>Searching For random!</b>";
+    document.querySelector("#status").innerHTML = "Searching For random!";
     getData(url);
 }
 
@@ -117,11 +117,11 @@ function dataLoaded(e) {
     let obj = JSON.parse(xhr.responseText);
 
     if (obj == null || obj.data.length == 0) {
-        document.querySelector("#status").innerHTML = "<b>No Result</b> "
+        document.querySelector("#status").innerHTML = "No Result "
+        document.querySelector("#content").innerHTML = "";
         return;
     }
-
-    if(obj.data.length == undefined)
+    else if(obj.data.length == undefined)
     {
         let result = obj.data;
         let bigString = "";
@@ -143,14 +143,15 @@ function dataLoaded(e) {
 
         document.querySelector("#content").innerHTML += bigString;
 
-        document.querySelector("#status").innerHTML = "<b>Success!</b>";
-        document.querySelector(".contentP").innerHTML = "<b>Here is a random results </b>";
+        document.querySelector("#status").innerHTML = "Success!";
+        document.querySelector(".contentP").innerHTML = "Here is a random results";
 
         return;
     }
 
     let results = obj.data;
     let bigString = "";
+    document.querySelector("#content").innerHTML = "";
 
     for (let i = 0; i < results.length; i++) {
         let result = results[i];
@@ -172,8 +173,8 @@ function dataLoaded(e) {
 
     document.querySelector("#content").innerHTML = bigString;
 
-    document.querySelector("#status").innerHTML = "<b>Success!</b>";
-    document.querySelector(".contentP").innerHTML = "<b>Here is "+ results.length +" results </b>";
+    document.querySelector("#status").innerHTML = "Success!";
+    document.querySelector(".contentP").innerHTML = "Here is "+ results.length +" results";
 }
 
 //copy url
@@ -207,4 +208,9 @@ function moreInfo(title, source, rating) {
 function infoButtonClicked() {
     document.getElementById("infoWindow").style.visibility="hidden";
     document.getElementById("infoCloseButton").style.visibility="hidden";
+}
+
+function ClearButtonClicked(){
+    document.querySelector("#content").innerHTML = "";
+    document.querySelector(".contentP").innerHTML = "No data yet!";
 }
