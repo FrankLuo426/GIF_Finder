@@ -85,6 +85,22 @@ function TrendingRsearchButtonClicked() {
     getData(url);
 }
 
+
+function RandomRsearchButtonClicked() {
+    //#1 above - this URL is the Giphy Search endpoint. Here's an example of another endpoint, the Giphy "Trending" endpoint:
+    const Random_Search_URL = "https://api.giphy.com/v1/gifs/random?";
+    //parse in the api_key
+    let url = Random_Search_URL;
+    let api_key = "tH7NkuJUOcVVGQ7yoFMoUkTgppTJUEY9";
+    url += "api_key=" + api_key;
+
+    let limit = document.querySelector("#limitGIF").value;
+    url += "&limit=" + limit;
+
+    document.querySelector("#status").innerHTML = "<b>Searching For random!</b>";
+    getData(url);
+}
+
 //Downloading the data with XHR
 function getData(url) {
     let xhr = new XMLHttpRequest();
