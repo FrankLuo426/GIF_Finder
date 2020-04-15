@@ -25,15 +25,15 @@
         </select>
 
         <p class="secondP">Background Mode:</p>
-        <select id="mode"  onChange="bgChange(this)">
+        <select id="mode" onChange="bgChange(this)">
             <option value="White" selected>White</option>
             <option value="Black">Black</option>
         </select>
     </div>
 
     <div class="widgets">
-        <input id="searchGIF" type="text" size="20" maxlength="20" defalut value=""/>
-    </div>  
+        <input id="searchGIF" type="text" size="20" maxlength="20" defalut value="cat" />
+    </div>
 
     <div class="widgets">
         <button type="button" id="search" class="gifIt" onclick="GIFsearchButtonClicked()">Gif It!</button>
@@ -41,7 +41,7 @@
         <button type="button" id="random" class="random" onclick="RandomSearchButtonClicked()">Random</button>
         <button type="button" id="clear" class="clear" onclick="ClearButtonClicked()">Clear</button>
     </div>
-    
+
     <div id="status">Ready to Go!</div>
 
     <h2>Results</h2>
@@ -53,6 +53,8 @@
     <div id="infoWindow"></div>
 
     <button type="button" id="infoCloseButton" class="infoClose" onclick="infoButtonClicked()">X</button>
-    
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
 </body>
+
 </html>
