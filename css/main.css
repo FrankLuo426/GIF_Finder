@@ -126,9 +126,16 @@ h2{
     font-weight: bold;
 }
 
+
+
+/* make sure the window never squeeze the image */
 #content {
-    display: flex;
-    flex-wrap: wrap;
+    /*display: flex;
+    flex-wrap: wrap;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,400px));
+
+
     justify-content: space-around;
     border: 5px solid rgb(25, 66, 128);
     border-radius: 10px;
@@ -136,6 +143,7 @@ h2{
     width: 90vw;
     min-height: 100px;
     margin-left: 4%;
+    padding-top: 50px;
     padding-bottom: 10%;
     background-color: #f0f0f0;
 }
@@ -215,3 +223,27 @@ h2{
     margin-top: 5%;
     font-size: 18px;
 }
+
+#myBtn {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    background-color: rgb(25, 66, 128); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background: rgb(34, 93, 180);
+    border-color: rgb(34, 93, 180);
+  }
+
+  #myBtn:active {
+    background: rgb(41, 107, 206);
+    border-color: rgb(41, 107, 206);
+    box-shadow : 0 0 5px rgba(0,0,0,.6);
+  }

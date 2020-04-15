@@ -8,7 +8,6 @@ function bgChange(thisColor) {
         document.getElementById("content").style.backgroundColor = "#0B0B0B";
         document.getElementById("credits").style.color = "#296bce";
         document.getElementById("contentP").style.color = "#296bce";
-
         let pList = document.querySelectorAll("p");
         for(i=0;i<pList.length;i++)
         {
@@ -217,4 +216,26 @@ function infoButtonClicked() {
 function ClearButtonClicked(){
     document.querySelector("#content").innerHTML = "";
     document.querySelector(".contentP").innerHTML = "All results have cleared!";
+}
+
+
+
+//Get the button:
+ let mybutton = document.querySelector("#myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
