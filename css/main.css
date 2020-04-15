@@ -126,12 +126,10 @@ h2{
     font-weight: bold;
 }
 
-
-
 /* make sure the window never squeeze the image */
 #content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,300px));
+    grid-template-columns: repeat(auto-fit, minmax(200px,300px));
     justify-content: space-around;
     border: 5px solid rgb(25, 66, 128);
     border-radius: 10px;
@@ -154,7 +152,7 @@ h2{
 
 .result{
     margin: 1em;
-    margin-top: 20%;
+    margin-top: 30%;
     width: 15vw;
     height: 20vh;
 }
