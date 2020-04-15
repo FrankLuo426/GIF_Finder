@@ -6,6 +6,8 @@ function bgChange(thisColor) {
         document.querySelector("h2").style.color = "#296bce";
         document.getElementById("status").style.color = "#296bce";
         document.getElementById("content").style.backgroundColor = "#0B0B0B";
+        document.getElementById("credits").style.color = "#296bce";
+        document.getElementById("contentP").style.color = "#296bce";
 
         let pList = document.querySelectorAll("p");
         for(i=0;i<pList.length;i++)
@@ -20,6 +22,8 @@ function bgChange(thisColor) {
         document.querySelector("h2").style.color = "#194280";
         document.getElementById("status").style.color = "#194280";
         document.getElementById("content").style.backgroundColor = "#f0f0f0";
+        document.getElementById("credits").style.color = "#194280";
+        document.getElementById("contentP").style.color = "#194280";
         
         let pList = document.querySelectorAll("p");
         for(i=0;i<pList.length;i++)
@@ -45,7 +49,7 @@ function GIFsearchButtonClicked() {
     let item = document.querySelector("#searchGIF").value;
     if(item == '')
     {
-        document.querySelector("#status").innerHTML = "Your have not enter any term yet!";
+        document.querySelector("#status").innerHTML = "You must enter a term to serach!";
     }
 
     displayTerm = item;
@@ -81,7 +85,7 @@ function TrendingRsearchButtonClicked() {
     let limit = document.querySelector("#limitGIF").value;
     url += "&limit=" + limit;
 
-    document.querySelector("#status").innerHTML = "Searching For trending!";
+    document.querySelector("#status").innerHTML = "Searching For Trending GIF!";
     getData(url);
 }
 
@@ -97,7 +101,7 @@ function RandomSearchButtonClicked() {
     let limit = document.querySelector("#limitGIF").value;
     url += "&limit=" + limit;
 
-    document.querySelector("#status").innerHTML = "Searching For random!";
+    document.querySelector("#status").innerHTML = "Searching For Random GIF!";
     getData(url);
 }
 
@@ -117,7 +121,7 @@ function dataLoaded(e) {
     let obj = JSON.parse(xhr.responseText);
 
     if (obj == null || obj.data.length == 0) {
-        document.querySelector("#status").innerHTML = "No Result "
+        document.querySelector("#status").innerHTML = "No Result Found..."
         document.querySelector("#content").innerHTML = "";
         return;
     }
@@ -144,7 +148,7 @@ function dataLoaded(e) {
         document.querySelector("#content").innerHTML += bigString;
 
         document.querySelector("#status").innerHTML = "Success!";
-        document.querySelector(".contentP").innerHTML = "Here is a random results";
+        document.querySelector(".contentP").innerHTML = "A random result added!";
 
         return;
     }
@@ -174,7 +178,7 @@ function dataLoaded(e) {
     document.querySelector("#content").innerHTML = bigString;
 
     document.querySelector("#status").innerHTML = "Success!";
-    document.querySelector(".contentP").innerHTML = "Here is "+ results.length +" results";
+    document.querySelector(".contentP").innerHTML = results.length +" results added!";
 }
 
 //copy url
@@ -212,5 +216,5 @@ function infoButtonClicked() {
 
 function ClearButtonClicked(){
     document.querySelector("#content").innerHTML = "";
-    document.querySelector(".contentP").innerHTML = "No data yet!";
+    document.querySelector(".contentP").innerHTML = "All results have cleared!";
 }
