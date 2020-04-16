@@ -158,11 +158,31 @@ h2{
 }
 
 .result img{
-    width: 15vw;
+    width: 280px;
     height: 20vh;
     border-radius : 10px;
     border: 4px solid rgb(25, 66, 128);
 }
+@media screen and (max-width: 1800px){
+    .result img{
+        width: 250px;
+    }
+} 
+@media screen and (max-width: 1333px){
+    .result img{
+        width: 300px;
+    }
+} 
+@media screen and (max-width: 1214px){
+    .result img{
+        width: 250px;
+    }
+} 
+@media screen and (max-width: 666px){
+    .result img{
+        width: 350px;
+    }
+} 
 
 .copyButton{
     font-size: 14px;
