@@ -153,12 +153,12 @@ h2{
 .result{
     margin: 1em;
     margin-top: 30%;
-    width: 15vw;
+    width: 300px;
     height: 20vh;
 }
 
 .result img{
-    width: 280px;
+    width: 15vw;
     height: 20vh;
     border-radius : 10px;
     border: 4px solid rgb(25, 66, 128);
@@ -180,7 +180,7 @@ h2{
 } 
 @media screen and (max-width: 666px){
     .result img{
-        width: 350px;
+        width: 300px;
     }
 } 
 
