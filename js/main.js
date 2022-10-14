@@ -16,7 +16,7 @@ function bgChange(thisColor) {
     }
     else
     {
-        document.bgColor = "white";
+        document.bgColor = "Black";
         document.querySelector("h1").style.color = "#194280";
         document.querySelector("h2").style.color = "#194280";
         document.getElementById("status").style.color = "#194280";
@@ -155,6 +155,8 @@ function dataLoaded(e) {
     let results = obj.data;
     let bigString = "";
     document.querySelector("#content").innerHTML = "";
+
+    let temp = 1;
 
     for (let i = 0; i < results.length; i++) {
         let result = results[i];
